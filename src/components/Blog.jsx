@@ -1,14 +1,19 @@
-import React from 'react';
-import { Calendar, User, Clock, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  Sparkles, 
+  X, 
+  ExternalLink 
+} from 'lucide-react';
 import srtImg from '../assets/srt.jpg';
 import airportImg from '../assets/airport.jpg';
 import gevImg from '../assets/gev.jpg';
+import iskonImg from '../assets/iskon.jpg';
 
 const blogPosts = [
   {
     id: 1,
     title: 'Khichdi vs Burger vs Chicken',
-    excerpt: 'Discover why the cosmic number 108 resonates throughout astronomy, mantra chanting, and human spiritual anatomy.',
+    excerpt: 'The 3 Gunas (Sattva, Rajas, Tamas) explain how diet profoundly shapes your consciousness, thoughts, and destiny.',
     date: 'Feb 10, 2026',
     author: 'Srila Prabhupada',
     readTime: '5 min read',
@@ -40,93 +45,463 @@ const blogPosts = [
   }
 ];
 
-/**
- * @param {{ onSelectPost?: (post: any) => void }} props
- */
 export default function Blog({ onSelectPost }) {
+  const [activeTile, setActiveTile] = useState(null);
+
+  // Dynamic image slots for the aesthetic layout
+  const portalImgTop = srtImg;
+  const portalImgLeft = airportImg;
+  const portalImgArch = gevImg;
+  const polaroidImg = iskonImg;
+
+  // Play subtle gentle chime on touch
+  const playTone = () => {
+    if (!soundEnabled) return;
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      if (ctx.state === 'suspended') ctx.resume();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(528, ctx.currentTime);
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.6);
+    } catch {
+      // Audio context restricted
+    }
+  };
+
+  const handleTileClick = (tileData) => {
+    playTone();
+    setActiveTile(tileData);
+  };
+
   return (
-    <section id="blog">
+    <section id="blog" className="insights-grid-section">
       <div className="container">
-        <div className="section-header">
-          <h2>Awakened Insights</h2>
-          <p className="section-description">
-            Daily spiritual facts
-          </p>
+        {/* Section Header */}
+        <div className="section-header" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--saffron)', marginBottom: '0.5rem', fontWeight: '800', fontSize: '0.85rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+            <Sparkles size={16} />
+            <span>Golden Saffron Editorial Moodboard</span>
+          </div>
+          <h2 style={{ letterSpacing: '0.02em' }}>Awakened Insights</h2>
         </div>
 
-        <div 
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem'
-          }}
-        >
-          {blogPosts.map((post) => (
-            <div key={post.id} className="glass-card" style={{ padding: 0, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                <span 
-                  style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    left: '1rem',
-                    background: 'var(--gradient-saffron)',
-                    color: 'var(--bg-dark)',
-                    fontWeight: '700',
-                    fontSize: '0.75rem',
-                    padding: '4px 12px',
-                    borderRadius: '50px',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  {post.tag}
-                </span>
-              </div>
-
-              <div style={{ padding: '1.75rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+        {/* THE UNIFIED 3x3 GOLDEN SAFFRON PUZZLE GRID */}
+        <div className="puzzle-grid-wrapper">
+              
+              {/* TILE 1 (Row 1, Col 1): SATVIK */}
+              <div 
+                className="puzzle-tile tile-golden-primary"
+                onClick={() => handleTileClick({
+                  title: 'Satvik (Sattva Guna)',
+                  headline: 'The Mode of Goodness & Purity',
+                  verse: 'Bhagavad Gita 17.8',
+                  text: 'Sāttvika represents purity, clarity, health, and joy. Satvik foods increase duration of life, purify existence, and bring inner peace and strength.',
+                  postRef: 1
+                })}
+              >
+                {/* Organic Petal Curve */}
                 <div 
-                  style={{ 
-                    display: 'flex', 
-                    gap: '1rem', 
-                    fontSize: '0.85rem', 
-                    color: 'var(--text-muted)',
-                    marginBottom: '0.75rem' 
-                  }}
-                >
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Calendar size={14} style={{ color: 'var(--saffron)' }} />
-                    {post.date}
+                  className="puzzle-curve-light" 
+                  style={{ top: '-15%', left: '-15%', width: '130%', height: '110%', borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}
+                />
+                
+                {/* Botanical Branch Line Art in Top-Right */}
+                <svg className="botanical-svg" style={{ top: '8px', right: '8px', width: '48px', height: '48px' }} viewBox="0 0 100 100">
+                  <path d="M 20 80 Q 40 40 80 20" />
+                  <path d="M 45 52 Q 60 48 55 35 Q 40 40 45 52" />
+                  <path d="M 60 38 Q 75 32 70 20 Q 55 26 60 38" />
+                  <path d="M 32 65 Q 20 55 28 45 Q 38 52 32 65" />
+                </svg>
+
+                <div style={{ position: 'relative', zIndex: 3, marginTop: 'auto', marginBottom: 'auto' }}>
+                  <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FFE680', display: 'block', marginBottom: '4px' }}>
+                    MODE OF GOODNESS
                   </span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Clock size={14} style={{ color: 'var(--gold)' }} />
-                    {post.readTime}
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', letterSpacing: '0.02em', lineHeight: 1.05 }}>
+                    Satvik
+                  </h3>
+                  <span style={{ fontSize: '0.72rem', color: '#FFF8E7', opacity: 0.9, display: 'block', marginTop: '6px' }}>
+                    Purity • Health • Joy
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--gold)', marginBottom: '0.75rem', lineHeight: 1.4 }}>
-                  {post.title}
-                </h3>
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#FFE680', boxShadow: '0 0 8px #FFD700' }} />
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '700', textTransform: 'uppercase', color: '#FFFCE6' }}>
+                    Sattva • Gita 17.8
+                  </span>
+                </div>
+              </div>
 
-                <p style={{ fontSize: '0.92rem', marginBottom: '1.5rem', flex: 1 }}>
-                  {post.excerpt}
-                </p>
+              {/* TILE 2 (Row 1, Col 2): RAJSHIK */}
+              <div 
+                className="puzzle-tile tile-golden-soft"
+                onClick={() => handleTileClick({
+                  title: 'Rajshik (Rajo Guna)',
+                  headline: 'The Mode of Passion & Agitation',
+                  verse: 'Bhagavad Gita 17.9',
+                  text: 'Rājasika is born of intense longing, ambition, and restless craving. Rajshik foods are overly pungent, salty, and dry, leading to distress and agitation.',
+                  img: portalImgTop,
+                  postRef: 1
+                })}
+              >
+                <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', marginBottom: '2px' }}>
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FFE680' }}>
+                    MODE OF PASSION
+                  </span>
+                </div>
 
-                <button 
-                  className="btn btn-outline btn-sm" 
-                  onClick={() => onSelectPost(post)}
-                  style={{ alignSelf: 'flex-start' }}
+                {/* Circular Portal Window Cutout */}
+                <div className="portal-window-circle" style={{ width: '70%', margin: '0 auto' }}>
+                  <img 
+                    src={portalImgTop} 
+                    alt="Rajshik Mode of Passion"
+                    onError={(e) => { e.currentTarget.src = srtImg; }}
+                  />
+                </div>
+
+                <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', marginTop: '4px' }}>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.7rem)', letterSpacing: '0.02em', lineHeight: 1.05, margin: 0 }}>
+                    Rajshik
+                  </h3>
+                  <span style={{ fontSize: '0.68rem', color: '#FFF8E7', opacity: 0.9, display: 'block', marginTop: '3px' }}>
+                    Passion • Craving • Motion
+                  </span>
+                </div>
+              </div>
+
+              {/* TILE 3 (Row 1, Col 3): TAMSHIK */}
+              <div 
+                className="puzzle-tile tile-golden-primary"
+                onClick={() => handleTileClick({
+                  title: 'Tamshik (Tamo Guna)',
+                  headline: 'The Mode of Ignorance & Inertia',
+                  verse: 'Bhagavad Gita 17.10',
+                  text: 'Tāmasika causes delusion, indolence, and darkness. Tamshik foods are stale, decomposed, and unclean, dragging down mind and vitality.',
+                  img: airportImg,
+                  postRef: 1
+                })}
+              >
+                {/* 4 Swatch Palette Dots */}
+                <div className="swatch-dots-row">
+                  <div className="swatch-dot" style={{ background: '#1A1A24', border: '1px solid rgba(255,215,0,0.4)' }} />
+                  <div className="swatch-dot" style={{ background: '#592E15', border: '1px solid rgba(255,215,0,0.4)' }} />
+                  <div className="swatch-dot" style={{ background: '#C28B1E', border: '1px solid rgba(255,215,0,0.4)' }} />
+                  <div className="swatch-dot" style={{ background: '#FFE680', border: '1px solid rgba(255,215,0,0.4)' }} />
+                </div>
+
+                <div style={{ position: 'relative', zIndex: 3, margin: 'auto 0' }}>
+                  <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FFE680', display: 'block', marginBottom: '4px' }}>
+                    MODE OF IGNORANCE
+                  </span>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', letterSpacing: '0.02em', lineHeight: 1.05 }}>
+                    Tamshik
+                  </h3>
+                  <span style={{ fontSize: '0.72rem', color: '#FFF8E7', opacity: 0.9, display: 'block', marginTop: '6px' }}>
+                    Inertia • Stagnation • Sleep
+                  </span>
+                  <div style={{ width: '40px', height: '2px', background: 'var(--gold)', marginTop: '8px' }} />
+                </div>
+
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#FFA500', boxShadow: '0 0 8px #FF8C00' }} />
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '700', textTransform: 'uppercase', color: '#FFFCE6' }}>
+                    Tamas • Gita 17.10
+                  </span>
+                </div>
+              </div>
+
+              {/* TILE 4 (Row 2, Col 1): Organic Oval Window Photo & Vertical Link */}
+              <div 
+                className="puzzle-tile tile-golden-deep"
+                style={{ padding: '0.65rem' }}
+                onClick={() => handleTileClick({
+                  title: 'Global Devotion',
+                  headline: 'Cultural Resonance & Faith',
+                  verse: 'Denver Airport',
+                  text: 'A Nigerian assistant speaking fluent Hindi, connected through Bollywood and love for Indian spirituality.',
+                  img: portalImgLeft,
+                  postRef: 2
+                })}
+              >
+                <div style={{ display: 'flex', width: '100%', height: '100%', gap: '8px', alignItems: 'center' }}>
+                  {/* Organic Portal Cutout */}
+                  <div 
+                    style={{ 
+                      flex: 1, 
+                      height: '92%', 
+                      borderRadius: '50% 50% 45% 45% / 60% 60% 40% 40%', 
+                      overflow: 'hidden', 
+                      border: '2.5px solid rgba(255, 225, 100, 0.75)',
+                      boxShadow: '0 6px 18px rgba(0, 0, 0, 0.35)' 
+                    }}
+                  >
+                    <img 
+                      src={portalImgLeft} 
+                      alt="Cultural resonance" 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={(e) => { e.currentTarget.src = airportImg; }}
+                    />
+                  </div>
+
+                  {/* Vertical Text matching reference */}
+                  <div className="puzzle-vertical-link">
+                    WWW.THEAWAKENED.ORG
+                  </div>
+                </div>
+              </div>
+
+              {/* TILE 5 (Row 2, Col 2 - CENTER): "The Latest Style" + Botanical Marigold */}
+              <div 
+                className="puzzle-tile tile-golden-primary"
+                onClick={() => handleTileClick({
+                  title: 'The Sattvic Style',
+                  headline: 'Ancient Wisdom for Modern Life',
+                  verse: 'Modes of Nature',
+                  text: 'Transcending low energy (Tamas) and restless agitation (Rajas) through pure Sattvic lifestyle choices.',
+                  postRef: 1
+                })}
+              >
+                <div style={{ position: 'relative', zIndex: 3 }}>
+                  <span style={{ fontSize: '0.65rem', letterSpacing: '0.15em', fontWeight: '800', textTransform: 'uppercase', color: 'var(--saffron)' }}>
+                    ESSENTIAL
+                  </span>
+                  <h3 className="editorial-serif-title" style={{ fontSize: '1.5rem', lineHeight: '1.1', marginTop: '4px' }}>
+                    The<br />Sattvic<br />Style
+                  </h3>
+                </div>
+
+                {/* Botanical Marigold Flower Line-Art SVG in bottom right */}
+                <svg className="botanical-svg" style={{ bottom: '-10px', right: '-10px', width: '110px', height: '110px' }} viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="14" stroke="rgba(255, 215, 0, 0.5)" />
+                  <path d="M 50 36 C 45 20, 55 20, 50 36" />
+                  <path d="M 50 64 C 45 80, 55 80, 50 64" />
+                  <path d="M 36 50 C 20 45, 20 55, 36 50" />
+                  <path d="M 64 50 C 80 45, 80 55, 64 50" />
+                  <path d="M 40 40 C 28 28, 38 22, 40 40" />
+                  <path d="M 60 60 C 72 72, 62 78, 60 60" />
+                  <path d="M 40 60 C 28 72, 22 62, 40 60" />
+                  <path d="M 60 40 C 72 28, 78 38, 60 40" />
+                </svg>
+
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#FFFFFF' }} />
+                  <span style={{ fontSize: '0.62rem', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    Goodness
+                  </span>
+                </div>
+              </div>
+
+              {/* TILE 6 (Row 2, Col 3): Arched Window Upper Half */}
+              <div 
+                className="puzzle-tile tile-golden-soft"
+                style={{ padding: '0.6rem 0.6rem 0 0.6rem' }}
+                onClick={() => handleTileClick({
+                  title: 'Simple Living High Thinking',
+                  headline: 'Govardhan Eco-Village Vision',
+                  verse: 'Srila Prabhupada Teachings',
+                  text: 'Returning to peaceful village life, agriculture, cow protection, and sustainable Vedic communities.',
+                  img: portalImgArch,
+                  postRef: 3
+                })}
+              >
+                {/* Botanical flower floating over arch */}
+                <svg className="botanical-svg" style={{ top: '8px', left: '10px', width: '38px', height: '38px', zIndex: 5 }} viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="12" />
+                  <path d="M 50 38 C 45 24, 55 24, 50 38" />
+                  <path d="M 38 50 C 24 45, 24 55, 38 50" />
+                  <path d="M 62 50 C 76 45, 76 55, 62 50" />
+                </svg>
+
+                {/* Arched Stone Portal Top */}
+                <div 
+                  className="portal-window-arch" 
+                  style={{ width: '92%', height: '100%', margin: '0 auto', borderRadius: '90px 90px 0 0', borderBottom: 'none' }}
                 >
-                  Read Article
-                  <ArrowRight size={14} />
+                  <img 
+                    src={portalImgArch} 
+                    alt="Simple living high thinking" 
+                    onError={(e) => { e.currentTarget.src = gevImg; }}
+                  />
+                </div>
+              </div>
+
+              {/* TILE 7 (Row 3, Col 1): Big Bold Quotation Marks & Gita Verse */}
+              <div 
+                className="puzzle-tile tile-golden-light"
+                onClick={() => handleTileClick({
+                  title: 'Bhagavad Gita 17.8',
+                  headline: 'The Science of Satvik Food',
+                  verse: 'Gita 17.8',
+                  text: 'Foods dear to those in the mode of goodness increase duration of life, purify existence, give strength, health, happiness, and satisfaction.',
+                  postRef: 1
+                })}
+              >
+                <div style={{ position: 'relative', zIndex: 3 }}>
+                  <span className="large-quote-mark">“</span>
+                  <p className="editorial-serif-quote" style={{ marginTop: '-8px' }}>
+                    Foods in goodness increase life, purify existence, and bring health, strength, and joy.
+                  </p>
+                </div>
+
+                {/* Botanical leaves at bottom */}
+                <svg className="botanical-svg" style={{ bottom: '4px', right: '4px', width: '50px', height: '50px' }} viewBox="0 0 100 100">
+                  <path d="M 80 80 Q 50 50 20 20" />
+                  <path d="M 50 50 Q 30 40 40 30 Q 55 40 50 50" />
+                  <path d="M 65 65 Q 45 55 55 45 Q 70 55 65 65" />
+                </svg>
+
+                <div style={{ position: 'relative', zIndex: 3 }}>
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '800', textTransform: 'uppercase', color: 'var(--gold)' }}>
+                    — BHAGAVAD GITA 17.8
+                  </span>
+                </div>
+              </div>
+
+              {/* TILE 8 (Row 3, Col 2): Classic Polaroid Photo Frame */}
+              <div 
+                className="puzzle-tile tile-golden-primary"
+                onClick={() => handleTileClick({
+                  title: 'Temple Heritage & Sanctuary',
+                  headline: 'Spiritual Sanctuary & Vedic Culture',
+                  verse: 'ISKCON Heritage',
+                  text: 'Experience the serene architecture, sacred chanting, and transcendental atmosphere of the temple.',
+                  img: polaroidImg,
+                  postRef: 3
+                })}
+              >
+                {/* Botanical sprig in background */}
+                <svg className="botanical-svg" style={{ top: '6px', left: '6px', width: '42px', height: '42px' }} viewBox="0 0 100 100">
+                  <path d="M 20 80 Q 40 40 80 20" />
+                  <path d="M 45 52 Q 60 48 55 35 Q 40 40 45 52" />
+                </svg>
+
+                {/* Classic Polaroid Frame matching reference Tile 8 */}
+                <div className="polaroid-frame">
+                  <img 
+                    src={polaroidImg} 
+                    alt="Spiritual sanctuary" 
+                    onError={(e) => { e.currentTarget.src = iskonImg; }}
+                  />
+                  <div className="polaroid-date">
+                    VEDA • 2026
+                  </div>
+                </div>
+              </div>
+
+              {/* TILE 9 (Row 3, Col 3): Arched Window Lower Half */}
+              <div 
+                className="puzzle-tile tile-golden-soft"
+                style={{ padding: '0 0.6rem 0.6rem 0.6rem' }}
+                onClick={() => handleTileClick({
+                  title: 'Simple Living High Thinking',
+                  headline: 'Govardhan Eco-Village Vision',
+                  verse: 'Srila Prabhupada Teachings',
+                  text: 'Returning to peaceful village life, agriculture, cow protection, and sustainable Vedic communities.',
+                  img: portalImgArch,
+                  postRef: 3
+                })}
+              >
+                {/* Arched Stone Portal Bottom */}
+                <div 
+                  className="portal-window-arch" 
+                  style={{ width: '92%', height: '100%', margin: '0 auto', borderRadius: '0', borderTop: 'none' }}
+                >
+                  <img 
+                    src={portalImgArch} 
+                    alt="Village eco living" 
+                    style={{ transform: 'translateY(-25%) scale(1.08)' }}
+                    onError={(e) => { e.currentTarget.src = gevImg; }}
+                  />
+                </div>
+              </div>
+
+            </div>
+
+        {/* TOUCH-INTERACTIVE TILE LIGHTBOX MODAL WITH HARD CORNERS */}
+        {activeTile && (
+          <div 
+            className="modal-overlay"
+            onClick={() => setActiveTile(null)}
+            style={{ zIndex: 100000 }}
+          >
+            <div 
+              className="modal-container hard-corner"
+              style={{ maxWidth: '580px', borderRadius: '0px', borderTop: '4px solid #F5CB53' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="modal-close" 
+                style={{ borderRadius: '0px' }}
+                onClick={() => setActiveTile(null)} 
+                aria-label="Close insight"
+              >
+                <X size={22} />
+              </button>
+
+              {activeTile.img && (
+                <div style={{ width: '100%', maxHeight: '250px', overflow: 'hidden', borderRadius: '0px', marginBottom: '1.25rem', background: '#000', border: '1px solid #E5B638' }}>
+                  <img 
+                    src={activeTile.img} 
+                    alt={activeTile.title} 
+                    onError={(e) => {
+                      e.currentTarget.src = srtImg;
+                    }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '0px' }}
+                  />
+                </div>
+              )}
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
+                <span className="puzzle-badge-pill" style={{ background: '#F5CB53', color: '#361F0C', border: 'none', fontWeight: '800' }}>
+                  {activeTile.verse || 'WISDOM'}
+                </span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--gold)', fontWeight: '700', letterSpacing: '0.05em' }}>
+                  {activeTile.title}
+                </span>
+              </div>
+
+              <h3 style={{ fontSize: '1.45rem', color: 'var(--text-primary)', marginBottom: '0.75rem', letterSpacing: '0.02em' }}>
+                {activeTile.headline}
+              </h3>
+
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                {activeTile.text}
+              </p>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
+                <button 
+                  className="btn btn-outline btn-sm"
+                  style={{ borderRadius: '0px' }}
+                  onClick={() => setActiveTile(null)}
+                >
+                  Close
+                </button>
+                <button 
+                  className="btn btn-primary btn-sm"
+                  style={{ borderRadius: '0px' }}
+                  onClick={() => {
+                    const post = blogPosts.find(p => p.id === activeTile.postRef) || blogPosts[0];
+                    setActiveTile(null);
+                    if (onSelectPost) onSelectPost(post);
+                  }}
+                >
+                  <span>Read Full Article</span>
+                  <ExternalLink size={14} />
                 </button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );
