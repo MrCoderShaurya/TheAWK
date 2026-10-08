@@ -312,10 +312,10 @@ export default function Blog({ onSelectPost }) {
                 </div>
               </div>
 
-              {/* TILE 6 (Row 2, Col 3): Arched Window Upper Half */}
+              {/* TILE 6 (Row 2, Col 3): Complete Arched Window Photo */}
               <div 
                 className="puzzle-tile tile-golden-soft"
-                style={{ padding: '0.6rem 0.6rem 0 0.6rem' }}
+                style={{ padding: '0.6rem' }}
                 onClick={() => handleTileClick({
                   title: 'Simple Living High Thinking',
                   headline: 'Govardhan Eco-Village Vision',
@@ -333,10 +333,10 @@ export default function Blog({ onSelectPost }) {
                   <path d="M 62 50 C 76 45, 76 55, 62 50" />
                 </svg>
 
-                {/* Arched Stone Portal Top */}
+                {/* Arched Stone Portal */}
                 <div 
                   className="portal-window-arch" 
-                  style={{ width: '92%', height: '100%', margin: '0 auto', borderRadius: '90px 90px 0 0', borderBottom: 'none' }}
+                  style={{ width: '92%', height: '100%', margin: '0 auto', borderRadius: '80px 80px 16px 16px', border: '2px solid rgba(255, 215, 0, 0.5)' }}
                 >
                   <img 
                     src={portalImgArch} 
@@ -346,94 +346,143 @@ export default function Blog({ onSelectPost }) {
                 </div>
               </div>
 
-              {/* TILE 7 (Row 3, Col 1): Big Bold Quotation Marks & Gita Verse */}
+              {/* TILE 7 (Row 3, Col 1): SATVIK FOOD (GREEN) - Gita 17.8 */}
               <div 
-                className="puzzle-tile tile-golden-light"
+                className="puzzle-tile tile-satvik"
                 onClick={() => handleTileClick({
-                  title: 'Bhagavad Gita 17.8',
-                  headline: 'The Science of Satvik Food',
-                  verse: 'Gita 17.8',
-                  text: 'Foods dear to those in the mode of goodness increase duration of life, purify existence, give strength, health, happiness, and satisfaction.',
+                  title: 'Satvik Food (Sattva Guna)',
+                  headline: 'The Science of Satvik Diet',
+                  verse: 'Bhagavad Gita 17.8',
+                  text: 'Foods dear to those in the mode of goodness increase duration of life, purify existence, and give strength, health, happiness, and satisfaction. Such foods are juicy, wholesome, and pleasing to the heart.',
                   theme: 'satvik',
                   postRef: 1
                 })}
               >
-                <div style={{ position: 'relative', zIndex: 3 }}>
-                  <span className="large-quote-mark">“</span>
-                  <p className="editorial-serif-quote" style={{ marginTop: '-8px' }}>
-                    Foods in goodness increase life, purify existence, and bring health, strength, and joy.
+                {/* Organic Petal Curve with Green Glow */}
+                <div 
+                  className="puzzle-curve-light" 
+                  style={{ 
+                    bottom: '-15%', 
+                    left: '-15%', 
+                    width: '130%', 
+                    height: '110%', 
+                    borderRadius: '50% 60% 40% 50% / 60% 40% 60% 40%',
+                    background: 'radial-gradient(circle, rgba(52, 211, 153, 0.22) 0%, transparent 70%)'
+                  }}
+                />
+
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#6EE7B7' }}>
+                    SATVIK DIET
+                  </span>
+                  <span className="large-quote-mark" style={{ fontSize: '2rem', lineHeight: '0.6' }}>“</span>
+                </div>
+
+                <div style={{ position: 'relative', zIndex: 3, margin: 'auto 0' }}>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.15rem, 2vw, 1.45rem)', color: '#ECFDF5', margin: '0 0 4px 0' }}>
+                    Wholesome
+                  </h3>
+                  <p className="editorial-serif-quote" style={{ margin: 0, fontSize: 'clamp(0.68rem, 1vw, 0.8rem)', lineHeight: '1.35' }}>
+                    Increases life, purifies existence, and gives health, strength & joy.
                   </p>
                 </div>
 
                 {/* Botanical leaves at bottom */}
-                <svg className="botanical-svg" style={{ bottom: '4px', right: '4px', width: '50px', height: '50px' }} viewBox="0 0 100 100">
+                <svg className="botanical-svg" style={{ bottom: '4px', right: '4px', width: '44px', height: '44px', stroke: 'rgba(110, 231, 183, 0.75)' }} viewBox="0 0 100 100">
                   <path d="M 80 80 Q 50 50 20 20" />
                   <path d="M 50 50 Q 30 40 40 30 Q 55 40 50 50" />
                   <path d="M 65 65 Q 45 55 55 45 Q 70 55 65 65" />
                 </svg>
 
-                <div style={{ position: 'relative', zIndex: 3 }}>
-                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '800', textTransform: 'uppercase', color: 'var(--gold)' }}>
-                    — BHAGAVAD GITA 17.8
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#34D399', boxShadow: '0 0 8px #10B981' }} />
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.11em', fontWeight: '800', textTransform: 'uppercase', color: '#F0FDF4' }}>
+                    Gita 17.8 • Goodness
                   </span>
                 </div>
               </div>
 
-              {/* TILE 8 (Row 3, Col 2): Classic Polaroid Photo Frame */}
+              {/* TILE 8 (Row 3, Col 2): RAJSHIK FOOD (RED) - Gita 17.9 */}
               <div 
-                className="puzzle-tile tile-golden-primary"
+                className="puzzle-tile tile-rajshik"
                 onClick={() => handleTileClick({
-                  title: 'Temple Heritage & Sanctuary',
-                  headline: 'Spiritual Sanctuary & Vedic Culture',
-                  verse: 'ISKCON Heritage',
-                  text: 'Experience the serene architecture, sacred chanting, and transcendental atmosphere of the temple.',
-                  img: polaroidImg,
-                  postRef: 3
+                  title: 'Rajshik Food (Rajo Guna)',
+                  headline: 'The Nature of Rajshik Diet',
+                  verse: 'Bhagavad Gita 17.9',
+                  text: 'Foods that are too bitter, too sour, salty, hot, pungent, dry, and burning are dear to those in the mode of passion. Such foods cause distress, misery, and disease.',
+                  theme: 'rajshik',
+                  postRef: 1
                 })}
               >
-                {/* Botanical sprig in background */}
-                <svg className="botanical-svg" style={{ top: '6px', left: '6px', width: '42px', height: '42px' }} viewBox="0 0 100 100">
-                  <path d="M 20 80 Q 40 40 80 20" />
-                  <path d="M 45 52 Q 60 48 55 35 Q 40 40 45 52" />
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FCA5A5' }}>
+                    RAJSHIK DIET
+                  </span>
+                  <span className="large-quote-mark" style={{ fontSize: '2rem', lineHeight: '0.6' }}>“</span>
+                </div>
+
+                <div style={{ position: 'relative', zIndex: 3, margin: 'auto 0' }}>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.15rem, 2vw, 1.45rem)', color: '#FFF1F2', margin: '0 0 4px 0' }}>
+                    Pungent
+                  </h3>
+                  <p className="editorial-serif-quote" style={{ margin: 0, fontSize: 'clamp(0.68rem, 1vw, 0.8rem)', lineHeight: '1.35' }}>
+                    Too bitter, sour, salty, hot & burning, bringing distress and disease.
+                  </p>
+                </div>
+
+                {/* Passion flame line art SVG in ruby red */}
+                <svg className="botanical-svg" style={{ bottom: '4px', right: '4px', width: '44px', height: '44px', stroke: 'rgba(252, 165, 165, 0.75)' }} viewBox="0 0 100 100">
+                  <path d="M 50 85 C 30 75, 25 50, 40 35 C 42 45, 48 50, 52 42 C 55 30, 48 15, 60 25 C 75 40, 75 70, 50 85 Z" />
+                  <path d="M 50 78 C 42 70, 40 58, 48 52 C 50 56, 54 58, 55 52 C 58 45, 54 38, 60 45 C 65 52, 62 70, 50 78 Z" />
                 </svg>
 
-                {/* Classic Polaroid Frame matching reference Tile 8 */}
-                <div className="polaroid-frame">
-                  <img 
-                    src={polaroidImg} 
-                    alt="Spiritual sanctuary" 
-                    onError={(e) => { e.currentTarget.src = iskonImg; }}
-                  />
-                  <div className="polaroid-date">
-                    VEDA • 2026
-                  </div>
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#EF4444', boxShadow: '0 0 8px #DC2626' }} />
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.11em', fontWeight: '800', textTransform: 'uppercase', color: '#FFE4E6' }}>
+                    Gita 17.9 • Passion
+                  </span>
                 </div>
               </div>
 
-              {/* TILE 9 (Row 3, Col 3): Arched Window Lower Half */}
+              {/* TILE 9 (Row 3, Col 3): TAMSHIK FOOD (BLACK) - Gita 17.10 */}
               <div 
-                className="puzzle-tile tile-golden-soft"
-                style={{ padding: '0 0.6rem 0.6rem 0.6rem' }}
+                className="puzzle-tile tile-tamshik"
                 onClick={() => handleTileClick({
-                  title: 'Simple Living High Thinking',
-                  headline: 'Govardhan Eco-Village Vision',
-                  verse: 'Srila Prabhupada Teachings',
-                  text: 'Returning to peaceful village life, agriculture, cow protection, and sustainable Vedic communities.',
-                  img: portalImgArch,
-                  postRef: 3
+                  title: 'Tamshik Food (Tamo Guna)',
+                  headline: 'The Darkness of Tamshik Diet',
+                  verse: 'Bhagavad Gita 17.10',
+                  text: 'Food prepared more than three hours before being eaten, food that is tasteless, decomposed and putrid, and food consisting of remnants and unclean things is dear to those in the mode of darkness.',
+                  theme: 'tamshik',
+                  postRef: 1
                 })}
               >
-                {/* Arched Stone Portal Bottom */}
-                <div 
-                  className="portal-window-arch" 
-                  style={{ width: '92%', height: '100%', margin: '0 auto', borderRadius: '0', borderTop: 'none' }}
-                >
-                  <img 
-                    src={portalImgArch} 
-                    alt="Village eco living" 
-                    style={{ transform: 'translateY(-25%) scale(1.08)' }}
-                    onError={(e) => { e.currentTarget.src = gevImg; }}
-                  />
+                {/* 4 Swatch Palette Dots in Dark / Monochromatic Tones */}
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#9CA3AF' }}>
+                    TAMSHIK DIET
+                  </span>
+                  <div className="swatch-dots-row">
+                    <div className="swatch-dot" style={{ background: '#09090C', border: '1px solid rgba(255,255,255,0.25)', width: '8px', height: '8px' }} />
+                    <div className="swatch-dot" style={{ background: '#374151', border: '1px solid rgba(255,255,255,0.25)', width: '8px', height: '8px' }} />
+                    <div className="swatch-dot" style={{ background: '#9CA3AF', border: '1px solid rgba(255,255,255,0.25)', width: '8px', height: '8px' }} />
+                  </div>
+                </div>
+
+                <div style={{ position: 'relative', zIndex: 3, margin: 'auto 0' }}>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.15rem, 2vw, 1.45rem)', color: '#F9FAFB', margin: '0 0 4px 0' }}>
+                    Putrid
+                  </h3>
+                  <p className="editorial-serif-quote" style={{ margin: 0, fontSize: 'clamp(0.68rem, 1vw, 0.8rem)', lineHeight: '1.35', color: '#D1D5DB' }}>
+                    Cooked 3 hours prior, tasteless, decomposed, putrid & unclean.
+                  </p>
+                  <div style={{ width: '40px', height: '2px', background: 'linear-gradient(90deg, #9CA3AF, transparent)', marginTop: '6px' }} />
+                </div>
+
+                <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#6B7280', boxShadow: '0 0 8px rgba(255,255,255,0.3)' }} />
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.11em', fontWeight: '800', textTransform: 'uppercase', color: '#E5E7EB' }}>
+                    Gita 17.10 • Ignorance
+                  </span>
                 </div>
               </div>
 
