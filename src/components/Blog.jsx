@@ -89,33 +89,41 @@ export default function Blog({ onSelectPost }) {
         <div className="section-header" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--saffron)', marginBottom: '0.5rem', fontWeight: '800', fontSize: '0.85rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
             <Sparkles size={16} />
-            <span>Golden Saffron Editorial Moodboard</span>
+            <span>The Three Gunas & Sacred Wisdom</span>
           </div>
           <h2 style={{ letterSpacing: '0.02em' }}>Awakened Insights</h2>
         </div>
 
-        {/* THE UNIFIED 3x3 GOLDEN SAFFRON PUZZLE GRID */}
+        {/* THE UNIFIED 3x3 PUZZLE GRID: GREEN FOR SATVIK, RED FOR RAJSHIK, BLACK FOR TAMSHIK */}
         <div className="puzzle-grid-wrapper">
               
-              {/* TILE 1 (Row 1, Col 1): SATVIK */}
+              {/* TILE 1 (Row 1, Col 1): SATVIK (GREEN) */}
               <div 
-                className="puzzle-tile tile-golden-primary"
+                className="puzzle-tile tile-satvik"
                 onClick={() => handleTileClick({
                   title: 'Satvik (Sattva Guna)',
                   headline: 'The Mode of Goodness & Purity',
                   verse: 'Bhagavad Gita 17.8',
                   text: 'Sāttvika represents purity, clarity, health, and joy. Satvik foods increase duration of life, purify existence, and bring inner peace and strength.',
+                  theme: 'satvik',
                   postRef: 1
                 })}
               >
-                {/* Organic Petal Curve */}
+                {/* Organic Petal Curve with Green Glow */}
                 <div 
                   className="puzzle-curve-light" 
-                  style={{ top: '-15%', left: '-15%', width: '130%', height: '110%', borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}
+                  style={{ 
+                    top: '-15%', 
+                    left: '-15%', 
+                    width: '130%', 
+                    height: '110%', 
+                    borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
+                    background: 'radial-gradient(circle, rgba(52, 211, 153, 0.25) 0%, transparent 70%)'
+                  }}
                 />
                 
-                {/* Botanical Branch Line Art in Top-Right */}
-                <svg className="botanical-svg" style={{ top: '8px', right: '8px', width: '48px', height: '48px' }} viewBox="0 0 100 100">
+                {/* Botanical Branch Line Art in Emerald Green */}
+                <svg className="botanical-svg" style={{ top: '8px', right: '8px', width: '48px', height: '48px', stroke: 'rgba(110, 231, 183, 0.8)' }} viewBox="0 0 100 100">
                   <path d="M 20 80 Q 40 40 80 20" />
                   <path d="M 45 52 Q 60 48 55 35 Q 40 40 45 52" />
                   <path d="M 60 38 Q 75 32 70 20 Q 55 26 60 38" />
@@ -123,45 +131,46 @@ export default function Blog({ onSelectPost }) {
                 </svg>
 
                 <div style={{ position: 'relative', zIndex: 3, marginTop: 'auto', marginBottom: 'auto' }}>
-                  <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FFE680', display: 'block', marginBottom: '4px' }}>
+                  <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#6EE7B7', display: 'block', marginBottom: '4px' }}>
                     MODE OF GOODNESS
                   </span>
-                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', letterSpacing: '0.02em', lineHeight: 1.05 }}>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', letterSpacing: '0.02em', lineHeight: 1.05, color: '#ECFDF5' }}>
                     Satvik
                   </h3>
-                  <span style={{ fontSize: '0.72rem', color: '#FFF8E7', opacity: 0.9, display: 'block', marginTop: '6px' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#D1FAE5', opacity: 0.95, display: 'block', marginTop: '6px' }}>
                     Purity • Health • Joy
                   </span>
                 </div>
 
                 <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#FFE680', boxShadow: '0 0 8px #FFD700' }} />
-                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '700', textTransform: 'uppercase', color: '#FFFCE6' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#34D399', boxShadow: '0 0 8px #10B981' }} />
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '700', textTransform: 'uppercase', color: '#F0FDF4' }}>
                     Sattva • Gita 17.8
                   </span>
                 </div>
               </div>
 
-              {/* TILE 2 (Row 1, Col 2): RAJSHIK */}
+              {/* TILE 2 (Row 1, Col 2): RAJSHIK (RED) */}
               <div 
-                className="puzzle-tile tile-golden-soft"
+                className="puzzle-tile tile-rajshik"
                 onClick={() => handleTileClick({
                   title: 'Rajshik (Rajo Guna)',
                   headline: 'The Mode of Passion & Agitation',
                   verse: 'Bhagavad Gita 17.9',
                   text: 'Rājasika is born of intense longing, ambition, and restless craving. Rajshik foods are overly pungent, salty, and dry, leading to distress and agitation.',
+                  theme: 'rajshik',
                   img: portalImgTop,
                   postRef: 1
                 })}
               >
                 <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', marginBottom: '2px' }}>
-                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FFE680' }}>
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FCA5A5' }}>
                     MODE OF PASSION
                   </span>
                 </div>
 
-                {/* Circular Portal Window Cutout */}
-                <div className="portal-window-circle" style={{ width: '70%', margin: '0 auto' }}>
+                {/* Circular Portal Window Cutout with Ruby Red Ring */}
+                <div className="portal-window-circle" style={{ width: '70%', margin: '0 auto', borderColor: 'rgba(248, 113, 113, 0.75)' }}>
                   <img 
                     src={portalImgTop} 
                     alt="Rajshik Mode of Passion"
@@ -170,51 +179,52 @@ export default function Blog({ onSelectPost }) {
                 </div>
 
                 <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', marginTop: '4px' }}>
-                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.7rem)', letterSpacing: '0.02em', lineHeight: 1.05, margin: 0 }}>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.7rem)', letterSpacing: '0.02em', lineHeight: 1.05, margin: 0, color: '#FFF1F2' }}>
                     Rajshik
                   </h3>
-                  <span style={{ fontSize: '0.68rem', color: '#FFF8E7', opacity: 0.9, display: 'block', marginTop: '3px' }}>
+                  <span style={{ fontSize: '0.68rem', color: '#FFE4E6', opacity: 0.95, display: 'block', marginTop: '3px' }}>
                     Passion • Craving • Motion
                   </span>
                 </div>
               </div>
 
-              {/* TILE 3 (Row 1, Col 3): TAMSHIK */}
+              {/* TILE 3 (Row 1, Col 3): TAMSHIK (BLACK) */}
               <div 
-                className="puzzle-tile tile-golden-primary"
+                className="puzzle-tile tile-tamshik"
                 onClick={() => handleTileClick({
                   title: 'Tamshik (Tamo Guna)',
                   headline: 'The Mode of Ignorance & Inertia',
                   verse: 'Bhagavad Gita 17.10',
                   text: 'Tāmasika causes delusion, indolence, and darkness. Tamshik foods are stale, decomposed, and unclean, dragging down mind and vitality.',
+                  theme: 'tamshik',
                   img: airportImg,
                   postRef: 1
                 })}
               >
-                {/* 4 Swatch Palette Dots */}
+                {/* 4 Swatch Palette Dots in Dark / Monochromatic Tones */}
                 <div className="swatch-dots-row">
-                  <div className="swatch-dot" style={{ background: '#1A1A24', border: '1px solid rgba(255,215,0,0.4)' }} />
-                  <div className="swatch-dot" style={{ background: '#592E15', border: '1px solid rgba(255,215,0,0.4)' }} />
-                  <div className="swatch-dot" style={{ background: '#C28B1E', border: '1px solid rgba(255,215,0,0.4)' }} />
-                  <div className="swatch-dot" style={{ background: '#FFE680', border: '1px solid rgba(255,215,0,0.4)' }} />
+                  <div className="swatch-dot" style={{ background: '#09090C', border: '1px solid rgba(255,255,255,0.25)' }} />
+                  <div className="swatch-dot" style={{ background: '#1F242E', border: '1px solid rgba(255,255,255,0.25)' }} />
+                  <div className="swatch-dot" style={{ background: '#374151', border: '1px solid rgba(255,255,255,0.25)' }} />
+                  <div className="swatch-dot" style={{ background: '#9CA3AF', border: '1px solid rgba(255,255,255,0.25)' }} />
                 </div>
 
                 <div style={{ position: 'relative', zIndex: 3, margin: 'auto 0' }}>
-                  <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#FFE680', display: 'block', marginBottom: '4px' }}>
+                  <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '800', color: '#9CA3AF', display: 'block', marginBottom: '4px' }}>
                     MODE OF IGNORANCE
                   </span>
-                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', letterSpacing: '0.02em', lineHeight: 1.05 }}>
+                  <h3 className="editorial-serif-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', letterSpacing: '0.02em', lineHeight: 1.05, color: '#F9FAFB' }}>
                     Tamshik
                   </h3>
-                  <span style={{ fontSize: '0.72rem', color: '#FFF8E7', opacity: 0.9, display: 'block', marginTop: '6px' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#D1D5DB', opacity: 0.95, display: 'block', marginTop: '6px' }}>
                     Inertia • Stagnation • Sleep
                   </span>
-                  <div style={{ width: '40px', height: '2px', background: 'var(--gold)', marginTop: '8px' }} />
+                  <div style={{ width: '40px', height: '2px', background: 'linear-gradient(90deg, #9CA3AF, transparent)', marginTop: '8px' }} />
                 </div>
 
                 <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#FFA500', boxShadow: '0 0 8px #FF8C00' }} />
-                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '700', textTransform: 'uppercase', color: '#FFFCE6' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#6B7280', boxShadow: '0 0 8px rgba(255,255,255,0.3)' }} />
+                  <span style={{ fontSize: '0.62rem', letterSpacing: '0.12em', fontWeight: '700', textTransform: 'uppercase', color: '#E5E7EB' }}>
                     Tamas • Gita 17.10
                   </span>
                 </div>
@@ -268,6 +278,7 @@ export default function Blog({ onSelectPost }) {
                   headline: 'Ancient Wisdom for Modern Life',
                   verse: 'Modes of Nature',
                   text: 'Transcending low energy (Tamas) and restless agitation (Rajas) through pure Sattvic lifestyle choices.',
+                  theme: 'satvik',
                   postRef: 1
                 })}
               >
@@ -343,6 +354,7 @@ export default function Blog({ onSelectPost }) {
                   headline: 'The Science of Satvik Food',
                   verse: 'Gita 17.8',
                   text: 'Foods dear to those in the mode of goodness increase duration of life, purify existence, give strength, health, happiness, and satisfaction.',
+                  theme: 'satvik',
                   postRef: 1
                 })}
               >
@@ -428,80 +440,117 @@ export default function Blog({ onSelectPost }) {
             </div>
 
         {/* TOUCH-INTERACTIVE TILE LIGHTBOX MODAL WITH HARD CORNERS */}
-        {activeTile && (
-          <div 
-            className="modal-overlay"
-            onClick={() => setActiveTile(null)}
-            style={{ zIndex: 100000 }}
-          >
+        {activeTile && (() => {
+          const isSatvik = activeTile.theme === 'satvik';
+          const isRajshik = activeTile.theme === 'rajshik';
+          const isTamshik = activeTile.theme === 'tamshik';
+
+          const borderColor = isSatvik ? '#10B981' : isRajshik ? '#EF4444' : isTamshik ? '#6B7280' : 'var(--saffron)';
+          const topBorderColor = isSatvik ? '#34D399' : isRajshik ? '#F87171' : isTamshik ? '#9CA3AF' : '#F5CB53';
+          const badgeBg = isSatvik ? '#10B981' : isRajshik ? '#EF4444' : isTamshik ? '#374151' : '#F5CB53';
+          const badgeColor = isSatvik ? '#022C22' : isRajshik ? '#FFFFFF' : isTamshik ? '#F9FAFB' : '#361F0C';
+          const accentColor = isSatvik ? '#6EE7B7' : isRajshik ? '#FCA5A5' : isTamshik ? '#D1D5DB' : 'var(--gold)';
+          const glowShadow = isSatvik 
+            ? '0 25px 80px rgba(0, 0, 0, 0.9), 0 0 50px rgba(16, 185, 129, 0.35)'
+            : isRajshik
+            ? '0 25px 80px rgba(0, 0, 0, 0.9), 0 0 50px rgba(239, 68, 68, 0.35)'
+            : isTamshik
+            ? '0 25px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(107, 114, 128, 0.3)'
+            : '0 25px 80px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 153, 51, 0.3)';
+          const btnGradient = isSatvik
+            ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'
+            : isRajshik
+            ? 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)'
+            : isTamshik
+            ? 'linear-gradient(135deg, #374151 0%, #1F2937 100%)'
+            : undefined;
+
+          return (
             <div 
-              className="modal-container hard-corner"
-              style={{ maxWidth: '580px', borderRadius: '0px', borderTop: '4px solid #F5CB53' }}
-              onClick={(e) => e.stopPropagation()}
+              className="modal-overlay"
+              onClick={() => setActiveTile(null)}
+              style={{ zIndex: 100000 }}
             >
-              <button 
-                className="modal-close" 
-                style={{ borderRadius: '0px' }}
-                onClick={() => setActiveTile(null)} 
-                aria-label="Close insight"
+              <div 
+                className="modal-container hard-corner"
+                style={{ 
+                  maxWidth: '580px', 
+                  borderRadius: '0px', 
+                  borderTop: `4px solid ${topBorderColor}`,
+                  border: `2px solid ${borderColor}`,
+                  boxShadow: glowShadow
+                }}
+                onClick={(e) => e.stopPropagation()}
               >
-                <X size={22} />
-              </button>
+                <button 
+                  className="modal-close" 
+                  style={{ borderRadius: '0px' }}
+                  onClick={() => setActiveTile(null)} 
+                  aria-label="Close insight"
+                >
+                  <X size={22} />
+                </button>
 
-              {activeTile.img && (
-                <div style={{ width: '100%', maxHeight: '250px', overflow: 'hidden', borderRadius: '0px', marginBottom: '1.25rem', background: '#000', border: '1px solid #E5B638' }}>
-                  <img 
-                    src={activeTile.img} 
-                    alt={activeTile.title} 
-                    onError={(e) => {
-                      e.currentTarget.src = srtImg;
-                    }}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '0px' }}
-                  />
+                {activeTile.img && (
+                  <div style={{ width: '100%', maxHeight: '250px', overflow: 'hidden', borderRadius: '0px', marginBottom: '1.25rem', background: '#000', border: `1px solid ${topBorderColor}` }}>
+                    <img 
+                      src={activeTile.img} 
+                      alt={activeTile.title} 
+                      onError={(e) => {
+                        e.currentTarget.src = srtImg;
+                      }}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '0px' }}
+                    />
+                  </div>
+                )}
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
+                  <span className="puzzle-badge-pill" style={{ background: badgeBg, color: badgeColor, border: 'none', fontWeight: '800' }}>
+                    {activeTile.verse || 'WISDOM'}
+                  </span>
+                  <span style={{ fontSize: '0.8rem', color: accentColor, fontWeight: '700', letterSpacing: '0.05em' }}>
+                    {activeTile.title}
+                  </span>
                 </div>
-              )}
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
-                <span className="puzzle-badge-pill" style={{ background: '#F5CB53', color: '#361F0C', border: 'none', fontWeight: '800' }}>
-                  {activeTile.verse || 'WISDOM'}
-                </span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--gold)', fontWeight: '700', letterSpacing: '0.05em' }}>
-                  {activeTile.title}
-                </span>
-              </div>
+                <h3 style={{ fontSize: '1.45rem', color: 'var(--text-primary)', marginBottom: '0.75rem', letterSpacing: '0.02em' }}>
+                  {activeTile.headline}
+                </h3>
 
-              <h3 style={{ fontSize: '1.45rem', color: 'var(--text-primary)', marginBottom: '0.75rem', letterSpacing: '0.02em' }}>
-                {activeTile.headline}
-              </h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                  {activeTile.text}
+                </p>
 
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                {activeTile.text}
-              </p>
-
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
-                <button 
-                  className="btn btn-outline btn-sm"
-                  style={{ borderRadius: '0px' }}
-                  onClick={() => setActiveTile(null)}
-                >
-                  Close
-                </button>
-                <button 
-                  className="btn btn-primary btn-sm"
-                  style={{ borderRadius: '0px' }}
-                  onClick={() => {
-                    const post = blogPosts.find(p => p.id === activeTile.postRef) || blogPosts[0];
-                    setActiveTile(null);
-                    if (onSelectPost) onSelectPost(post);
-                  }}
-                >
-                  <span>Read Full Article</span>
-                  <ExternalLink size={14} />
-                </button>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
+                  <button 
+                    className="btn btn-outline btn-sm"
+                    style={{ borderRadius: '0px' }}
+                    onClick={() => setActiveTile(null)}
+                  >
+                    Close
+                  </button>
+                  <button 
+                    className="btn btn-primary btn-sm"
+                    style={{ 
+                      borderRadius: '0px',
+                      background: btnGradient,
+                      borderColor: topBorderColor,
+                      color: isTamshik ? '#F9FAFB' : undefined
+                    }}
+                    onClick={() => {
+                      const post = blogPosts.find(p => p.id === activeTile.postRef) || blogPosts[0];
+                      setActiveTile(null);
+                      if (onSelectPost) onSelectPost(post);
+                    }}
+                  >
+                    <span>Read Full Article</span>
+                    <ExternalLink size={14} />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
     </section>
   );
